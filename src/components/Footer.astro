@@ -1,0 +1,76 @@
+---
+import Hr from "./Hr.astro";
+import Socials from "./Socials.astro";
+
+const currentYear = new Date().getFullYear();
+
+export interface Props {
+  noMarginTop?: boolean;
+}
+
+const { noMarginTop = false } = Astro.props;
+---
+
+<footer class:list={["w-full", { "mt-auto": !noMarginTop }]}>
+  <Hr noPadding />
+
+  <!-- <div class="my-8 text-center">
+    <h3 class="mb-2 text-xl font-semibold">Subscribe</h3>
+    <p class="mb-4 text-sm opacity-80">
+      Get notified when I publish new articles.
+    </p>
+    <form
+      action="https://buttondown.com/api/emails/embed-subscribe/fabianek"
+      method="post"
+      target="popupwindow"
+      onsubmit="window.open('https://buttondown.com/fabianek', 'popupwindow')"
+      class="embeddable-buttondown-form"
+    >
+      <label for="bd-email" class="sr-only">Enter your email</label>
+      <input type="email" name="email" id="bd-email" placeholder="you@email.com" />
+      <input type="submit" value="Subscribe" />
+    </form>
+  </div> -->
+  <div class="my-8 text-center">
+    <h3 class="mb-2 text-xl font-semibold">Subscribe</h3>
+    <p class="mb-4 text-sm opacity-80">
+      Get notified when I publish new articles.
+    </p>
+
+    <form
+      action="https://buttondown.com/api/emails/embed-subscribe/fabianek"
+      method="post"
+      target="popupwindow"
+      onsubmit="window.open('https://buttondown.com/fabianek', 'popupwindow')"
+      class="flex justify-center"
+    >
+      <label for="bd-email" class="sr-only">Enter your email</label>
+
+      <input
+        type="email"
+        name="email"
+        id="bd-email"
+        placeholder="you@email.com"
+        class="w-full max-w-xs appearance-none rounded-l-md border-0 bg-muted px-4 py-2 text-foreground placeholder:text-foreground/50 focus:ring-2 focus:ring-accent focus:outline-none"
+        required
+      />
+
+      <input
+        type="submit"
+        value="Subscribe"
+        class="cursor-pointer rounded-r-md border-0 bg-accent px-4 py-2 font-semibold text-background transition hover:opacity-90"
+      />
+    </form>
+  </div>
+
+  <div
+    class="flex flex-col items-center justify-between py-6 sm:flex-row-reverse sm:py-4"
+  >
+    <Socials centered />
+    <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row">
+      <span>Copyright &#169; {currentYear} Philip Fabianek</span>
+      <!-- <span class="hidden sm:inline">&nbsp;|&nbsp;</span>
+      <span>All rights reserved.</span> -->
+    </div>
+  </div>
+</footer>
