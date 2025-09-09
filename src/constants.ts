@@ -9,7 +9,7 @@ import IconYoutube from "@/assets/icons/IconYoutube.svg";
 // import IconFacebook from "@/assets/icons/IconFacebook.svg";
 // import IconTelegram from "@/assets/icons/IconTelegram.svg";
 // import IconPinterest from "@/assets/icons/IconPinterest.svg";
-import { SITE } from "@/config";
+// import { SITE } from "@/config";
 
 interface Social {
   name: string;
@@ -23,7 +23,7 @@ export const SOCIALS: Social[] = [
   {
     name: "GitHub",
     href: "https://github.com/philipfabianek",
-    linkTitle: `${SITE.title} on GitHub`,
+    linkTitle: `My GitHub profile`,
     icon: IconGitHub,
     target: "_blank",
   },
@@ -37,21 +37,21 @@ export const SOCIALS: Social[] = [
   {
     name: "LinkedIn",
     href: "https://www.linkedin.com/in/philip-fabianek/",
-    linkTitle: `${SITE.title} on LinkedIn`,
+    linkTitle: `My LinkedIn profile`,
     icon: IconLinkedin,
     target: "_blank",
   },
   {
     name: "Youtube",
     href: "https://www.youtube.com/philipfabianek",
-    linkTitle: `${SITE.title} on YouTube`,
+    linkTitle: `My YouTube channel`,
     icon: IconYoutube,
     target: "_blank",
   },
   {
     name: "Mail",
     href: "mailto:fabianekphilip@gmail.com",
-    linkTitle: `Send an email to ${SITE.title}`,
+    linkTitle: `Send me an email`,
     icon: IconMail,
   },
 ] as const;
