@@ -14,30 +14,14 @@ const { noMarginTop = false } = Astro.props;
 <footer class:list={["w-full", { "mt-auto": !noMarginTop }]}>
   <Hr noPadding />
 
-  <!-- <div class="my-8 text-center">
-    <h3 class="mb-2 text-xl font-semibold">Subscribe</h3>
-    <p class="mb-4 text-sm opacity-80">
-      Get notified when I publish new articles.
-    </p>
-    <form
-      action="https://buttondown.com/api/emails/embed-subscribe/fabianek"
-      method="post"
-      target="popupwindow"
-      onsubmit="window.open('https://buttondown.com/fabianek', 'popupwindow')"
-      class="embeddable-buttondown-form"
-    >
-      <label for="bd-email" class="sr-only">Enter your email</label>
-      <input type="email" name="email" id="bd-email" placeholder="you@email.com" />
-      <input type="submit" value="Subscribe" />
-    </form>
-  </div> -->
   <div class="my-8 text-center">
     <h3 class="mb-2 text-xl font-semibold">Subscribe</h3>
     <p class="mb-4 text-sm opacity-80">
       Get notified when I publish new articles.
     </p>
 
-    <form
+    <!-- Buttondown -->
+    <!-- <form
       action="https://buttondown.com/api/emails/embed-subscribe/fabianek"
       method="post"
       target="popupwindow"
@@ -60,6 +44,30 @@ const { noMarginTop = false } = Astro.props;
         value="Subscribe"
         class="cursor-pointer rounded-r-md border-0 bg-accent px-4 py-2 font-semibold text-background transition hover:opacity-90"
       />
+    </form> -->
+
+    <!-- MailerLite -->
+    <form id="mailerlite-form" class="flex justify-center">
+      <label for="ml-email" class="sr-only">Enter your email</label>
+
+      <input
+        type="email"
+        name="fields[email]"
+        id="ml-email"
+        placeholder="you@email.com"
+        class="w-full max-w-xs appearance-none rounded-l-md border-0 bg-muted px-4 py-2 text-foreground placeholder:text-foreground/50 focus:ring-2 focus:ring-accent focus:outline-none"
+        required
+      />
+
+      <input type="hidden" name="ml-submit" value="1" />
+
+      <button
+        type="submit"
+        id="ml-submit-button"
+        class="cursor-pointer rounded-r-md border-0 bg-accent px-4 py-2 font-semibold text-background transition hover:opacity-90"
+      >
+        Subscribe
+      </button>
     </form>
   </div>
 
@@ -74,3 +82,45 @@ const { noMarginTop = false } = Astro.props;
     </div>
   </div>
 </footer>
+
+<!-- Script for MailerLite form -->
+<script>
+  const form = document.getElementById("mailerlite-form") as HTMLFormElement;
+  const emailInput = document.getElementById("ml-email") as HTMLInputElement;
+  const submitButton = document.getElementById(
+    "ml-submit-button"
+  ) as HTMLButtonElement;
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    submitButton.disabled = true;
+
+    const formData = new FormData(form);
+    const formAction =
+      "https://assets.mailerlite.com/jsonp/1787557/forms/165082139904181532/subscribe";
+
+    fetch(formAction, {
+      method: "POST",
+      body: formData,
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          submitButton.textContent = "Success!";
+          submitButton.classList.remove("bg-accent");
+          submitButton.classList.add("bg-green-600");
+          emailInput.disabled = true;
+        } else {
+          submitButton.textContent = "Error!";
+          submitButton.disabled = false;
+        }
+      })
+      .catch(error => {
+        // eslint-disable-next-line no-console
+        console.error("Error:", error);
+        submitButton.textContent = "Error!";
+        submitButton.disabled = false;
+      });
+  });
+</script>
