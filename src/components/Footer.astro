@@ -71,15 +71,44 @@ const { noMarginTop = false } = Astro.props;
     </form>
   </div>
 
-  <div
+  <!-- <div
     class="flex flex-col items-center justify-between py-6 sm:flex-row-reverse sm:py-4"
   >
     <Socials centered />
     <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row">
-      <span>Copyright &#169; {currentYear} Philip Fabianek</span>
-      <!-- <span class="hidden sm:inline">&nbsp;|&nbsp;</span>
-      <span>All rights reserved.</span> -->
+      <span>Copyright &#169; {currentYear} Philip Fabianek.</span>
+      <span class="hidden sm:inline">&nbsp;|&nbsp;</span>
+      <span
+        >Content licensed under <a
+          href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline decoration-dashed hover:text-accent"
+          >CC BY-NC-SA 4.0</a
+        ></span
+      >
     </div>
+  </div> -->
+
+  <div
+    class="flex flex-col items-center justify-between gap-4 py-6 sm:flex-row sm:py-4"
+  >
+    <div class="text-center text-sm sm:text-left">
+      <div>Copyright &#169; {currentYear} Philip Fabianek.</div>
+      <div class="text-xs opacity-80">
+        Content licensed under
+        <a
+          href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline decoration-dashed hover:text-accent"
+        >
+          CC BY-NC-SA 4.0
+        </a>
+      </div>
+    </div>
+
+    <Socials />
   </div>
 </footer>
 
