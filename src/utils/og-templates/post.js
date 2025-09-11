@@ -177,6 +177,14 @@ export default async post => {
                           {
                             type: "span",
                             props: {
+                              style: { overflow: "hidden", fontWeight: "bold" },
+                              // Hide this, preserve placement of the other span
+                              // children: SITE.title,
+                            },
+                          },
+                          {
+                            type: "span",
+                            props: {
                               children: [
                                 "by ",
                                 {
@@ -197,13 +205,6 @@ export default async post => {
                                   },
                                 },
                               ],
-                            },
-                          },
-                          {
-                            type: "span",
-                            props: {
-                              style: { overflow: "hidden", fontWeight: "bold" },
-                              children: SITE.title,
                             },
                           },
                         ],
