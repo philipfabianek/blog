@@ -1,4 +1,4 @@
-const primaryColorScheme = "light";
+const primaryColorScheme = null;
 
 // Get theme data from local storage
 const currentTheme = localStorage.getItem("theme");
