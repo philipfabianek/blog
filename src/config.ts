@@ -2,7 +2,7 @@ export const SITE = {
   website: "https://philipfabianek.com/",
   author: "Philip Fabianek",
   profile: "https://github.com/philipfabianek",
-  desc: "My personal blog.",
+  desc: "All about machine learning, performance engineering, and software development.",
   title: "Philip Fabianek",
   ogImage: "og.png",
   lightAndDarkMode: true,
