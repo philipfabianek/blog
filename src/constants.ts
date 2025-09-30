@@ -2,7 +2,7 @@ import type { Props } from "astro";
 import type { GiscusProps } from "@giscus/react";
 import IconMail from "@/assets/icons/IconMail.svg";
 import IconGitHub from "@/assets/icons/IconGitHub.svg";
-// import IconBrandX from "@/assets/icons/IconBrandX.svg";
+import IconBrandX from "@/assets/icons/IconBrandX.svg";
 import IconLinkedin from "@/assets/icons/IconLinkedin.svg";
 import IconYoutube from "@/assets/icons/IconYoutube.svg";
 // import IconWhatsapp from "@/assets/icons/IconWhatsapp.svg";
@@ -27,13 +27,13 @@ export const SOCIALS: Social[] = [
     icon: IconGitHub,
     target: "_blank",
   },
-  // {
-  //   name: "X",
-  //   href: "https://x.com/philip_fabianek",
-  //   linkTitle: `${SITE.title} on X`,
-  //   icon: IconBrandX,
-  //   target: "_blank",
-  // },
+  {
+    name: "X",
+    href: "https://x.com/philip_fabianek",
+    linkTitle: `My X profile`,
+    icon: IconBrandX,
+    target: "_blank",
+  },
   {
     name: "LinkedIn",
     href: "https://www.linkedin.com/in/philip-fabianek/",
