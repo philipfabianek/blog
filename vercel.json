@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "chess.philipfabianek.com"
+        }
+      ],
+      "destination": "https://158adk17ckml6x-5000.proxy.runpod.net/",
+      "permanent": false
+    }
+  ]
+}
